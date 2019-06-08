@@ -17,7 +17,7 @@ public class CommitDto {
         return gitId;
     }
 
-    public void setValue(String gitId) {
+    public void setGitId(String gitId) {
         this.gitId = gitId;
     }
 
