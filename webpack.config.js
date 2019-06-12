@@ -1,18 +1,16 @@
 var path = require('path');
 var outputPath = path.resolve(__dirname, '/src/main/webapp/react');
+
 module.exports = {
 
     context: path.resolve(__dirname, 'src/main/jsx'),
+    entry : path.join(__dirname,`/src/main/webapp/components/Root.jsx`),
 
-    entry: {
-        main: './MainPage.jsx',
-        page1: './Page1Page.jsx'
-    },
     devtool: 'sourcemaps',
     cache: true,
-    output: {
-        path: __dirname,
-        filename: './src/main/webapp/react/[name].bundle.js'
+    output : {
+        filename: `bundle.js`,
+        path: path.join(__dirname, `/src/main/webapp/public`),
     },
     mode: 'none',
     module: {
@@ -29,17 +27,16 @@ module.exports = {
             test: /\.css$/,
             use: [ 'style-loader', 'css-loader' ]
         } ]
+    },
+    devServer: {
+        hot : true,
+        contentBase: [
+            path.join(__dirname, `/src/main/webapp/public`),
+            path.join(__dirname, `/src/main/webapp/components`)],
+        watchContentBase: true,
+        historyApiFallback: true,
+        compress: true,
+        port: 9000,
     }
-    // devServer: {
-    //     contentBase: outputPath,
-    //     publicPath: '/',
-    //     host: '0.0.0.0',
-    //     port: 80,
-    //     proxy: {
-    //         '**': 'http://127.0.0.1:8080'
-    //     },
-    //     inline: true,
-    //     hot: false
-    // }
 
 };
