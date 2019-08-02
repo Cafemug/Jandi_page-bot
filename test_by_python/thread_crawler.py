@@ -27,7 +27,7 @@ class test:
         a= soup.findAll('rect')
         resulta={}
         try:
-            query = f"update crawler set count = {a[-1]['data-count']} where nickname = '{nick}'"
+            query = "update crawler set count = {count} where nickname = '{nickname}'".format(nickname=nick,count=a[-1]['data-count'])
             cursor.execute(query)
             _data = cursor.fetchall()
             print(_data)
@@ -61,7 +61,7 @@ class test:
         a= soup.findAll('rect')
         resulta={}
         try:
-            query = f"insert into crawler(nickname,count) values('{nick}', {a[-1]['data-count']})"
+            query = "insert into crawler(nickname,count) values('{nickname}', {count})".format(nickname=nick,count=a[-1]['data-count'])
             cursor.execute(query)
             _data = cursor.fetchall()
             print(_data)
