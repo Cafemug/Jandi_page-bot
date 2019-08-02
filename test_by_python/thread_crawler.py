@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup as bs
 import time
 from multiprocessing import Pool # Pool import하기
 import datetime
-from run import conn, cursor
+from db_connect import conn, cursor
 class test:
     def __init__(self,time):
         self.time=time
