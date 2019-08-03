@@ -1,7 +1,7 @@
 _DB_CONF = {
-    'host': 'host',
-    'port': port,
-    'user': user,
-    'passwd': pw,
-    'db': db
+    'host': 'samkookji77.iptime.org',
+    'port': 11306,
+    'user': 'root',
+    'passwd': 'zjarhdehfl',
+    'db': 'jandi'
 }
