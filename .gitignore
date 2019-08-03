@@ -54,3 +54,6 @@ chrome-user-data
 .vscode
 *.swp
 *.swo
+
+nohup.out
+config.py
