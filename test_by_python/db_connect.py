@@ -16,5 +16,3 @@ app.config['MYSQL_DATABASE_PORT'] = config._DB_CONF['port']
 # MySQL 연결
 mysql = MySQL()
 mysql.init_app(app)
-conn = mysql.connect()
-cursor = conn.cursor()

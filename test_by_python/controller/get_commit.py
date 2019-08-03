@@ -3,10 +3,12 @@ from flask import request, Flask,make_response
 import sys
 import json
 sys.path.append("..")
-from db_connect import conn, cursor
+from db_connect import mysql
 
 class GetCommit(Resource):
     def get(self):
+        conn = mysql.connect()
+        cursor = conn.cursor()
         query = "select * from crawler"
         cursor.execute(query)
         data = cursor.fetchall()
@@ -18,4 +20,6 @@ class GetCommit(Resource):
             print(temp)
             result.append(temp)
         print(result)
+        cursor.close()
+        conn.close()
         return make_response(json.dumps(result, ensure_ascii=False))

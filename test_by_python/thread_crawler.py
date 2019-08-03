@@ -4,12 +4,14 @@ from bs4 import BeautifulSoup as bs
 import time
 from multiprocessing import Pool # Pool import하기
 import datetime
-from db_connect import conn, cursor
+from db_connect import mysql 
 class test:
     def __init__(self,time):
         self.time=time
         self.session = requests.Session()
     def get_content(self,total):
+        conn = mysql.connect()
+        cursor = conn.cursor()
         data = total[1]
         nick = total[0]
         abs_link = 'https://github.com/'+data
@@ -30,7 +32,6 @@ class test:
             query = "update crawler set count = {count} where nickname = '{nickname}'".format(nickname=nick,count=a[-1]['data-count'])
             cursor.execute(query)
             _data = cursor.fetchall()
-            print(_data)
             if not _data:
                 conn.commit()
                 print({"update Success": 200})
@@ -41,9 +42,14 @@ class test:
             # resulta["value"] = a[-1]['data-count']
         except Exception as e:
             print(e) 
+        cursor.close()
+        conn.close()
         return resulta
 
     def register_content(self,total):
+        conn = mysql.connect()
+        cursor = conn.cursor()
+
         data = total[1]
         nick = total[0]
         abs_link = 'https://github.com/'+data
@@ -75,6 +81,9 @@ class test:
             # resulta["value"] = a[-1]['data-count']
         except Exception as e:
             print(e) 
+        cursor.close()
+        conn.close()
+
         return resulta
 
     def execute(self,num):
@@ -88,4 +97,4 @@ if __name__ =="__main__":
     now = datetime.datetime.now()
     nowTime = now.strftime('%Y-%m-%d')
     e= test(nowTime)
-    result = e.execute(8)
+    result = e.execute(2)
