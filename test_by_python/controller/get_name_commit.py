@@ -7,7 +7,7 @@ from db_connect import mysql
 
 class GetNameCommit(Resource):
     def get(self, name):
-        names = ['컴공돌이', '또르', '복이', '뇸뇸', 'ㄷㄷ', '뇌가딴딴', '싸이클러', '1컴이', '레게힙합소년', '방탕성현단', '해피스마일', 'ccpo', '깃토리', '퐁퐁', '깃별', '하준', '맹코', '감동란', '현', '개발냄새', 'GIT촙오', '야옹', '개입', '펭귄']
+        names = ['컴공돌이', '또르', '복이', '뇸뇸', 'ㄷㄷ', '뇌가딴딴', '싸이클러', '1컴이', '레게힙합소년', '방탕성현단', '해피스마일', 'ccpo', '깃토리', '퐁퐁', '깃별', '하준', '맹코', '감동란', '현', '개발냄새', 'joe', '야옹', 'CLY', '펭귄', 'sogo']
         if(not name in names):
             result = [{'result' : "Not Found name"}]
             return make_response(json.dumps(result, ensure_ascii=False))
