@@ -88,7 +88,7 @@ class test:
 
     def execute(self,num):
         result=[]
-        a={ '컴공돌이' : 'cafemug', '또르' : '9992', '복이' : 'changbokLee', '뇸뇸' : 'ellapresso', 'ㄷㄷ' : 'x86kernel', '뇌가딴딴' : 'ljhg1124', '싸이클러' : 'msnodeve', '1컴이' : 'horace-velmont', '레게힙합소년' : 'samkookji77', '방탕성현단' : 'seonghy', '해피스마일' : 'rnhappysmile', 'ccpo' : 'ccppoo', '깃토리' : 'haeyoonjo', '퐁퐁' : 'seongminseok', '깃별' : 'wg19', '하준' : 'chanmi-kim', '맹코' : 'mengkko', '감동란' : 'th787706', '현' : 'kim6394', '개발냄새' : 'taewoo1991', 'joe' : 'porquelaquiero', '야옹' : 'asw91666', 'CLY' : 'dogcolley', '펭귄' : "cruisediary","sogo" : "sogoagain"}
+        a={ '컴공돌이' : 'cafemug', '또르' : '9992', '복이' : 'changbokLee', '뇸뇸' : 'ellapresso', 'ㄷㄷ' : 'x86kernel', '뇌가딴딴' : 'ljhg1124', '싸이클러' : 'msnodeve', '1컴이' : 'horace-velmont', '레게힙합소년' : 'samkookji77', '방탕성현단' : 'seonghy', '해피스마일' : 'rnhappysmile', 'ccpo' : 'ccppoo', '깃토리' : 'haeyoonjo', '퐁퐁' : 'seongminseok', '깃별' : 'wg19', '맹코' : 'mengkko', '감동란' : 'th787706', '현' : 'kim6394', '개발냄새' : 'taewoo1991', 'joe' : 'porquelaquiero', '야옹' : 'asw91666', 'CLY' : 'dogcolley', '펭귄' : "cruisediary","sogo" : "sogoagain", "냐":"lilynys", "kstost":"kstost","나부랭이":"silverthreadk"}
         pool = Pool(processes=num) # 4개의 프로세스를 사용합니다.
         result.extend(pool.map(self.get_content, [(k,v) for k,v in a.items()]))# get_contetn 함수를 넣어줍시다.
         return(result)
